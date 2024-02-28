@@ -78,11 +78,17 @@ def get_dataset(dataset_name):
 
     twitter_train = 'data/twitter/train_biaffine.json'
     twitter_test = 'data/twitter/test_biaffine.json'
+    
+    trieout_train = 'data/trieout/Laptop_Train_v2_biaffine_depparsed.json'
+    trieout_test = 'data/trieout/Laptops_Test_Gold_biaffine_depparsed.json'
+    
+    germeval_train ='data/germeval/germeval_train_biaffine_depparsed.json'
+    germeval_test ='data/germeval/germeval_test_biaffine_depparsed.json'
 
     ds_train = {'rest': rest_train,
-                'laptop': laptop_train, 'twitter': twitter_train}
+                'laptop': laptop_train, 'twitter': twitter_train, 'trieout': trieout_train, 'germeval': germeval_train}
     ds_test = {'rest': rest_test,
-               'laptop': laptop_test, 'twitter': twitter_test}
+               'laptop': laptop_test, 'twitter': twitter_test, 'trieout': trieout_test, 'germeval': germeval_test}
 
     train = list(read_sentence_depparsed(ds_train[dataset_name]))
     logger.info('# Read %s Train set: %d', dataset_name, len(train))

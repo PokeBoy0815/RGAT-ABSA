@@ -30,10 +30,10 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # Required parameters
-    parser.add_argument('--dataset_name', type=str, default='rest',
-                        choices=['rest', 'laptop', 'twitter'],
+    parser.add_argument('--dataset_name', type=str, default='germeval',
+                        choices=['rest', 'laptop', 'twitter', 'trieout', 'germeval', 'mobasa'],
                         help='Choose absa dataset.')
-    parser.add_argument('--output_dir', type=str, default='/data1/SHENWZH/ABSA_online/data/output-gcn',
+    parser.add_argument('--output_dir', type=str, default='./data/output-gcn-germeval',
                         help='Directory to store intermedia data, such as vocab, embeddings, tags_vocab.')
     parser.add_argument('--num_classes', type=int, default=3,
                         help='Number of classes of ABSA.')
@@ -45,9 +45,9 @@ def parse_args():
                         help='random seed for initialization')
 
     # Model parameters
-    parser.add_argument('--glove_dir', type=str, default='/data1/SHENWZH/wordvec',
+    parser.add_argument('--glove_dir', type=str, default='./data/glove_english',
                         help='Directory storing glove embeddings')
-    parser.add_argument('--bert_model_dir', type=str, default='/data1/SHENWZH/models/bert_base',
+    parser.add_argument('--bert_model_dir', type=str, default='./data/bert-base-uncased',
                         help='Path to pre-trained Bert model.')
     parser.add_argument('--pure_bert', action='store_true',
                         help='Cat text and aspect, [cls] to predict.')
